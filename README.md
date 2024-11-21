@@ -46,15 +46,13 @@ The dataset consists of video sequences captured during gait analysis. Each vide
    - Once the model is trained, it can predict the label (Normal/Abnormal) for new gait sequences by analyzing the temporal patterns in the joint angles and stride data.
 
 ## How to Use
-
+### 2. Extract data
+From every sequence of data exists in a folder extract landmarks of the 3D pose estimation and then the joints angels and store them in two files to use the data extracted in them in the model
 ### 1. Training the Model
 
 To train the model, ensure that you have the gait sequence data in the correct format and placed in the appropriate folders.
 
-- Place the gait sequence data in the `Training` folder, divided into `Normal` and `Abnormal` subfolders.
+- Place the gait sequence data in the `Training` folder, divided into `Normal` and `Abnormal` subfolders, and for testing do the same with `Testing` folder.
 - Run the `train_model.py` script to train the model. The script will load the data, preprocess it, and train an LSTM model. After training, the model will be saved as `gait_model.h5`.
 
-### Example command to train:
 
-```bash
-python train_model.py
