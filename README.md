@@ -14,9 +14,11 @@ The goal of this project is to:
 ## Approach
 
 The approach is divided into two main parts:
-1. **Data Processing**: Gait sequences are processed by extracting body joint angles (like knee flexion, ankle dorsiflexion) and stride parameters (stride length, width). These features are used to represent each step in a gait sequence. These sequences are padded to a fixed length for consistent input into the model.
+1.**Data Splitting**: Every video was split into individual steps and organise them in a sequence of step to process steps instead of a whole gait
+
+2. **Data Processing**: Gait sequences are processed by extracting body joint angles (like knee flexion, ankle dorsiflexion) and stride parameters (stride length, width). These features were extracted from each step in a gait sequence. These sequences are padded to a fixed length (110 steps) for consistent input into the model.
    
-2. **Modeling**: We use an LSTM-based deep learning model to classify the gait sequences. The LSTM network is well-suited for sequence prediction tasks, as it can learn from the temporal dependencies in the gait patterns.
+3. **Modeling**: We use an LSTM-based deep learning model to classify the gait sequences. The LSTM network is well-suited for sequence prediction tasks, as it can learn from the temporal dependencies in the gait patterns.
 
 The model is trained on labeled gait sequences (Normal vs. Abnormal), and it predicts the class for any given sequence of steps.
 
@@ -26,7 +28,7 @@ The dataset consists of video sequences captured during gait analysis. Each vide
 
 - **Angle Data**: Includes joint angles (e.g., knee, ankle, hip flexion) and stride parameters (stride length, width) for each step.
 - **Landmark Data**: Contains the body landmark coordinates (e.g., the positions of body joints in 3D space) for each step.
-- **Folders**: The data is organized into `Normal` and `Abnormal` folders, with each folder containing gait sequences stored in subfolders. Each subfolder corresponds to a unique gait sequence, and within each subfolder, files are named in the format `videoorder_gaitorder_steporder_angles.npy` for angle data and `videoorder_gaitorder_steporder_landmarks.npy` for landmark data.
+- **Folders**: The data is organized into `Training` and `Testing` which both includes `Normal` and `Abnormal` folders, with each folder containing gait sequences stored in subfolders. Each subfolder corresponds to a unique gait sequence, and within each subfolder, files are named in the format `videonumber_angles.npy` for angle data and `videonumber_landmarks.npy` for landmark data.
 
 ## Key Features
 
