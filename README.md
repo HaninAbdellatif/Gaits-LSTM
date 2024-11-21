@@ -55,4 +55,16 @@ To train the model, ensure that you have the gait sequence data in the correct f
 - Place the gait sequence data in the `Training` folder, divided into `Normal` and `Abnormal` subfolders, and for testing do the same with `Testing` folder.
 - Run the `train_model.py` script to train the model. The script will load the data, preprocess it, and train an LSTM model. After training, the model will be saved as `gait_model.h5`.
 
-
+gait-analysis/
+│
+├── Training/               # Training data folder
+│   ├── Normal/             # Normal gait sequences
+│   └── Abnormal/          # Abnormal gait sequences
+│
+├── Testing/                # Testing data folder
+│   ├── Normal/             # Normal gait sequences
+│   └── Abnormal/          # Abnormal gait sequences
+│
+├── Logic.py                # Script for the logic used to extract the 3D landmarks and joints angels
+├── LSTM.py                 # Script for training the LSTM model
+└── gait_model.h5           # Saved pretrained model (after training)
